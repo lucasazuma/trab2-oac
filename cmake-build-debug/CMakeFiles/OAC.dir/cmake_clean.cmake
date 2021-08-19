@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/OAC.dir/binary.c.o"
   "CMakeFiles/OAC.dir/main.c.o"
-  "CMakeFiles/OAC.dir/memory.c.o"
-  "CMakeFiles/OAC.dir/test.c.o"
-  "CMakeFiles/OAC.dir/validations.c.o"
+  "CMakeFiles/OAC.dir/memory/binary.c.o"
+  "CMakeFiles/OAC.dir/memory/memory.c.o"
+  "CMakeFiles/OAC.dir/memory/test.c.o"
+  "CMakeFiles/OAC.dir/memory/validations.c.o"
   "OAC"
   "OAC.pdb"
 )

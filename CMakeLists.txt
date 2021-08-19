@@ -3,4 +3,4 @@ project(OAC C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(OAC main.c memory.h memory.c validations.h validations.c binary.h binary.c test.c test.h)
+add_executable(OAC main.c memory/memory.h memory/memory.c memory/validations.h memory/validations.c memory/binary.h memory/binary.c memory/test.c memory/test.h)

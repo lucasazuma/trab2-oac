@@ -76,31 +76,31 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/lucas/unb/2020-02/oac/trab2-oac/binary.c">
-			<Option target="OAC"/>
-		</Unit>
-		<Unit filename="/home/lucas/unb/2020-02/oac/trab2-oac/binary.h">
-			<Option target="OAC"/>
-		</Unit>
 		<Unit filename="/home/lucas/unb/2020-02/oac/trab2-oac/main.c">
 			<Option target="OAC"/>
 		</Unit>
-		<Unit filename="/home/lucas/unb/2020-02/oac/trab2-oac/memory.c">
+		<Unit filename="/home/lucas/unb/2020-02/oac/trab2-oac/memory/binary.c">
 			<Option target="OAC"/>
 		</Unit>
-		<Unit filename="/home/lucas/unb/2020-02/oac/trab2-oac/memory.h">
+		<Unit filename="/home/lucas/unb/2020-02/oac/trab2-oac/memory/binary.h">
 			<Option target="OAC"/>
 		</Unit>
-		<Unit filename="/home/lucas/unb/2020-02/oac/trab2-oac/test.c">
+		<Unit filename="/home/lucas/unb/2020-02/oac/trab2-oac/memory/memory.c">
 			<Option target="OAC"/>
 		</Unit>
-		<Unit filename="/home/lucas/unb/2020-02/oac/trab2-oac/test.h">
+		<Unit filename="/home/lucas/unb/2020-02/oac/trab2-oac/memory/memory.h">
 			<Option target="OAC"/>
 		</Unit>
-		<Unit filename="/home/lucas/unb/2020-02/oac/trab2-oac/validations.c">
+		<Unit filename="/home/lucas/unb/2020-02/oac/trab2-oac/memory/test.c">
 			<Option target="OAC"/>
 		</Unit>
-		<Unit filename="/home/lucas/unb/2020-02/oac/trab2-oac/validations.h">
+		<Unit filename="/home/lucas/unb/2020-02/oac/trab2-oac/memory/test.h">
+			<Option target="OAC"/>
+		</Unit>
+		<Unit filename="/home/lucas/unb/2020-02/oac/trab2-oac/memory/validations.c">
+			<Option target="OAC"/>
+		</Unit>
+		<Unit filename="/home/lucas/unb/2020-02/oac/trab2-oac/memory/validations.h">
 			<Option target="OAC"/>
 		</Unit>
 		<Unit filename="/home/lucas/unb/2020-02/oac/trab2-oac/CMakeLists.txt">

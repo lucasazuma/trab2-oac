@@ -129,30 +129,6 @@ OAC/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/build
 .PHONY : OAC/fast
 
-binary.o: binary.c.o
-.PHONY : binary.o
-
-# target to build an object file
-binary.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/binary.c.o
-.PHONY : binary.c.o
-
-binary.i: binary.c.i
-.PHONY : binary.i
-
-# target to preprocess a source file
-binary.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/binary.c.i
-.PHONY : binary.c.i
-
-binary.s: binary.c.s
-.PHONY : binary.s
-
-# target to generate assembly for a file
-binary.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/binary.c.s
-.PHONY : binary.c.s
-
 main.o: main.c.o
 .PHONY : main.o
 
@@ -177,77 +153,101 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/main.c.s
 .PHONY : main.c.s
 
-memory.o: memory.c.o
-.PHONY : memory.o
+memory/binary.o: memory/binary.c.o
+.PHONY : memory/binary.o
 
 # target to build an object file
-memory.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/memory.c.o
-.PHONY : memory.c.o
+memory/binary.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/memory/binary.c.o
+.PHONY : memory/binary.c.o
 
-memory.i: memory.c.i
-.PHONY : memory.i
+memory/binary.i: memory/binary.c.i
+.PHONY : memory/binary.i
 
 # target to preprocess a source file
-memory.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/memory.c.i
-.PHONY : memory.c.i
+memory/binary.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/memory/binary.c.i
+.PHONY : memory/binary.c.i
 
-memory.s: memory.c.s
-.PHONY : memory.s
+memory/binary.s: memory/binary.c.s
+.PHONY : memory/binary.s
 
 # target to generate assembly for a file
-memory.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/memory.c.s
-.PHONY : memory.c.s
+memory/binary.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/memory/binary.c.s
+.PHONY : memory/binary.c.s
 
-test.o: test.c.o
-.PHONY : test.o
+memory/memory.o: memory/memory.c.o
+.PHONY : memory/memory.o
 
 # target to build an object file
-test.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/test.c.o
-.PHONY : test.c.o
+memory/memory.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/memory/memory.c.o
+.PHONY : memory/memory.c.o
 
-test.i: test.c.i
-.PHONY : test.i
+memory/memory.i: memory/memory.c.i
+.PHONY : memory/memory.i
 
 # target to preprocess a source file
-test.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/test.c.i
-.PHONY : test.c.i
+memory/memory.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/memory/memory.c.i
+.PHONY : memory/memory.c.i
 
-test.s: test.c.s
-.PHONY : test.s
+memory/memory.s: memory/memory.c.s
+.PHONY : memory/memory.s
 
 # target to generate assembly for a file
-test.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/test.c.s
-.PHONY : test.c.s
+memory/memory.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/memory/memory.c.s
+.PHONY : memory/memory.c.s
 
-validations.o: validations.c.o
-.PHONY : validations.o
+memory/test.o: memory/test.c.o
+.PHONY : memory/test.o
 
 # target to build an object file
-validations.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/validations.c.o
-.PHONY : validations.c.o
+memory/test.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/memory/test.c.o
+.PHONY : memory/test.c.o
 
-validations.i: validations.c.i
-.PHONY : validations.i
+memory/test.i: memory/test.c.i
+.PHONY : memory/test.i
 
 # target to preprocess a source file
-validations.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/validations.c.i
-.PHONY : validations.c.i
+memory/test.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/memory/test.c.i
+.PHONY : memory/test.c.i
 
-validations.s: validations.c.s
-.PHONY : validations.s
+memory/test.s: memory/test.c.s
+.PHONY : memory/test.s
 
 # target to generate assembly for a file
-validations.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/validations.c.s
-.PHONY : validations.c.s
+memory/test.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/memory/test.c.s
+.PHONY : memory/test.c.s
+
+memory/validations.o: memory/validations.c.o
+.PHONY : memory/validations.o
+
+# target to build an object file
+memory/validations.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/memory/validations.c.o
+.PHONY : memory/validations.c.o
+
+memory/validations.i: memory/validations.c.i
+.PHONY : memory/validations.i
+
+# target to preprocess a source file
+memory/validations.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/memory/validations.c.i
+.PHONY : memory/validations.c.i
+
+memory/validations.s: memory/validations.c.s
+.PHONY : memory/validations.s
+
+# target to generate assembly for a file
+memory/validations.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/memory/validations.c.s
+.PHONY : memory/validations.c.s
 
 # Help Target
 help:
@@ -258,21 +258,21 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... OAC"
-	@echo "... binary.o"
-	@echo "... binary.i"
-	@echo "... binary.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... memory.o"
-	@echo "... memory.i"
-	@echo "... memory.s"
-	@echo "... test.o"
-	@echo "... test.i"
-	@echo "... test.s"
-	@echo "... validations.o"
-	@echo "... validations.i"
-	@echo "... validations.s"
+	@echo "... memory/binary.o"
+	@echo "... memory/binary.i"
+	@echo "... memory/binary.s"
+	@echo "... memory/memory.o"
+	@echo "... memory/memory.i"
+	@echo "... memory/memory.s"
+	@echo "... memory/test.o"
+	@echo "... memory/test.i"
+	@echo "... memory/test.s"
+	@echo "... memory/validations.o"
+	@echo "... memory/validations.i"
+	@echo "... memory/validations.s"
 .PHONY : help
 
 

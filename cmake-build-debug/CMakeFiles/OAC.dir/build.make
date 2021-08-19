@@ -79,74 +79,74 @@ CMakeFiles/OAC.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OAC.dir/main.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/lucas/unb/2020-02/oac/trab2-oac/main.c -o CMakeFiles/OAC.dir/main.c.s
 
-CMakeFiles/OAC.dir/memory.c.o: CMakeFiles/OAC.dir/flags.make
-CMakeFiles/OAC.dir/memory.c.o: ../memory.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/OAC.dir/memory.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OAC.dir/memory.c.o -c /home/lucas/unb/2020-02/oac/trab2-oac/memory.c
+CMakeFiles/OAC.dir/memory/memory.c.o: CMakeFiles/OAC.dir/flags.make
+CMakeFiles/OAC.dir/memory/memory.c.o: ../memory/memory.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/OAC.dir/memory/memory.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OAC.dir/memory/memory.c.o -c /home/lucas/unb/2020-02/oac/trab2-oac/memory/memory.c
 
-CMakeFiles/OAC.dir/memory.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OAC.dir/memory.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/lucas/unb/2020-02/oac/trab2-oac/memory.c > CMakeFiles/OAC.dir/memory.c.i
+CMakeFiles/OAC.dir/memory/memory.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OAC.dir/memory/memory.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/lucas/unb/2020-02/oac/trab2-oac/memory/memory.c > CMakeFiles/OAC.dir/memory/memory.c.i
 
-CMakeFiles/OAC.dir/memory.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OAC.dir/memory.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/lucas/unb/2020-02/oac/trab2-oac/memory.c -o CMakeFiles/OAC.dir/memory.c.s
+CMakeFiles/OAC.dir/memory/memory.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OAC.dir/memory/memory.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/lucas/unb/2020-02/oac/trab2-oac/memory/memory.c -o CMakeFiles/OAC.dir/memory/memory.c.s
 
-CMakeFiles/OAC.dir/validations.c.o: CMakeFiles/OAC.dir/flags.make
-CMakeFiles/OAC.dir/validations.c.o: ../validations.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/OAC.dir/validations.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OAC.dir/validations.c.o -c /home/lucas/unb/2020-02/oac/trab2-oac/validations.c
+CMakeFiles/OAC.dir/memory/validations.c.o: CMakeFiles/OAC.dir/flags.make
+CMakeFiles/OAC.dir/memory/validations.c.o: ../memory/validations.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/OAC.dir/memory/validations.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OAC.dir/memory/validations.c.o -c /home/lucas/unb/2020-02/oac/trab2-oac/memory/validations.c
 
-CMakeFiles/OAC.dir/validations.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OAC.dir/validations.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/lucas/unb/2020-02/oac/trab2-oac/validations.c > CMakeFiles/OAC.dir/validations.c.i
+CMakeFiles/OAC.dir/memory/validations.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OAC.dir/memory/validations.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/lucas/unb/2020-02/oac/trab2-oac/memory/validations.c > CMakeFiles/OAC.dir/memory/validations.c.i
 
-CMakeFiles/OAC.dir/validations.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OAC.dir/validations.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/lucas/unb/2020-02/oac/trab2-oac/validations.c -o CMakeFiles/OAC.dir/validations.c.s
+CMakeFiles/OAC.dir/memory/validations.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OAC.dir/memory/validations.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/lucas/unb/2020-02/oac/trab2-oac/memory/validations.c -o CMakeFiles/OAC.dir/memory/validations.c.s
 
-CMakeFiles/OAC.dir/binary.c.o: CMakeFiles/OAC.dir/flags.make
-CMakeFiles/OAC.dir/binary.c.o: ../binary.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/OAC.dir/binary.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OAC.dir/binary.c.o -c /home/lucas/unb/2020-02/oac/trab2-oac/binary.c
+CMakeFiles/OAC.dir/memory/binary.c.o: CMakeFiles/OAC.dir/flags.make
+CMakeFiles/OAC.dir/memory/binary.c.o: ../memory/binary.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/OAC.dir/memory/binary.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OAC.dir/memory/binary.c.o -c /home/lucas/unb/2020-02/oac/trab2-oac/memory/binary.c
 
-CMakeFiles/OAC.dir/binary.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OAC.dir/binary.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/lucas/unb/2020-02/oac/trab2-oac/binary.c > CMakeFiles/OAC.dir/binary.c.i
+CMakeFiles/OAC.dir/memory/binary.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OAC.dir/memory/binary.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/lucas/unb/2020-02/oac/trab2-oac/memory/binary.c > CMakeFiles/OAC.dir/memory/binary.c.i
 
-CMakeFiles/OAC.dir/binary.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OAC.dir/binary.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/lucas/unb/2020-02/oac/trab2-oac/binary.c -o CMakeFiles/OAC.dir/binary.c.s
+CMakeFiles/OAC.dir/memory/binary.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OAC.dir/memory/binary.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/lucas/unb/2020-02/oac/trab2-oac/memory/binary.c -o CMakeFiles/OAC.dir/memory/binary.c.s
 
-CMakeFiles/OAC.dir/test.c.o: CMakeFiles/OAC.dir/flags.make
-CMakeFiles/OAC.dir/test.c.o: ../test.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/OAC.dir/test.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OAC.dir/test.c.o -c /home/lucas/unb/2020-02/oac/trab2-oac/test.c
+CMakeFiles/OAC.dir/memory/test.c.o: CMakeFiles/OAC.dir/flags.make
+CMakeFiles/OAC.dir/memory/test.c.o: ../memory/test.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/OAC.dir/memory/test.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/OAC.dir/memory/test.c.o -c /home/lucas/unb/2020-02/oac/trab2-oac/memory/test.c
 
-CMakeFiles/OAC.dir/test.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OAC.dir/test.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/lucas/unb/2020-02/oac/trab2-oac/test.c > CMakeFiles/OAC.dir/test.c.i
+CMakeFiles/OAC.dir/memory/test.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/OAC.dir/memory/test.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/lucas/unb/2020-02/oac/trab2-oac/memory/test.c > CMakeFiles/OAC.dir/memory/test.c.i
 
-CMakeFiles/OAC.dir/test.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OAC.dir/test.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/lucas/unb/2020-02/oac/trab2-oac/test.c -o CMakeFiles/OAC.dir/test.c.s
+CMakeFiles/OAC.dir/memory/test.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/OAC.dir/memory/test.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/lucas/unb/2020-02/oac/trab2-oac/memory/test.c -o CMakeFiles/OAC.dir/memory/test.c.s
 
 # Object files for target OAC
 OAC_OBJECTS = \
 "CMakeFiles/OAC.dir/main.c.o" \
-"CMakeFiles/OAC.dir/memory.c.o" \
-"CMakeFiles/OAC.dir/validations.c.o" \
-"CMakeFiles/OAC.dir/binary.c.o" \
-"CMakeFiles/OAC.dir/test.c.o"
+"CMakeFiles/OAC.dir/memory/memory.c.o" \
+"CMakeFiles/OAC.dir/memory/validations.c.o" \
+"CMakeFiles/OAC.dir/memory/binary.c.o" \
+"CMakeFiles/OAC.dir/memory/test.c.o"
 
 # External object files for target OAC
 OAC_EXTERNAL_OBJECTS =
 
 OAC: CMakeFiles/OAC.dir/main.c.o
-OAC: CMakeFiles/OAC.dir/memory.c.o
-OAC: CMakeFiles/OAC.dir/validations.c.o
-OAC: CMakeFiles/OAC.dir/binary.c.o
-OAC: CMakeFiles/OAC.dir/test.c.o
+OAC: CMakeFiles/OAC.dir/memory/memory.c.o
+OAC: CMakeFiles/OAC.dir/memory/validations.c.o
+OAC: CMakeFiles/OAC.dir/memory/binary.c.o
+OAC: CMakeFiles/OAC.dir/memory/test.c.o
 OAC: CMakeFiles/OAC.dir/build.make
 OAC: CMakeFiles/OAC.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable OAC"

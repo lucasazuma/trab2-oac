@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "./test.h"
+#include "memory/test.h"
 
 /*
  * Nome: Lucas Azuma Pelicioni Ishiruji

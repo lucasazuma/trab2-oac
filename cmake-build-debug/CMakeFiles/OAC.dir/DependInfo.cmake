@@ -8,11 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/lucas/unb/2020-02/oac/trab2-oac/binary.c" "/home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug/CMakeFiles/OAC.dir/binary.c.o"
   "/home/lucas/unb/2020-02/oac/trab2-oac/main.c" "/home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug/CMakeFiles/OAC.dir/main.c.o"
-  "/home/lucas/unb/2020-02/oac/trab2-oac/memory.c" "/home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug/CMakeFiles/OAC.dir/memory.c.o"
-  "/home/lucas/unb/2020-02/oac/trab2-oac/test.c" "/home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug/CMakeFiles/OAC.dir/test.c.o"
-  "/home/lucas/unb/2020-02/oac/trab2-oac/validations.c" "/home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug/CMakeFiles/OAC.dir/validations.c.o"
+  "/home/lucas/unb/2020-02/oac/trab2-oac/memory/binary.c" "/home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug/CMakeFiles/OAC.dir/memory/binary.c.o"
+  "/home/lucas/unb/2020-02/oac/trab2-oac/memory/memory.c" "/home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug/CMakeFiles/OAC.dir/memory/memory.c.o"
+  "/home/lucas/unb/2020-02/oac/trab2-oac/memory/test.c" "/home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug/CMakeFiles/OAC.dir/memory/test.c.o"
+  "/home/lucas/unb/2020-02/oac/trab2-oac/memory/validations.c" "/home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug/CMakeFiles/OAC.dir/memory/validations.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
