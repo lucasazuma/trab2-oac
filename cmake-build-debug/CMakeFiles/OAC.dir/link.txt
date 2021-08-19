@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/OAC.dir/main.c.o CMakeFiles/OAC.dir/memory.c.o CMakeFiles/OAC.dir/validations.c.o CMakeFiles/OAC.dir/binary.c.o CMakeFiles/OAC.dir/test.c.o -o OAC 

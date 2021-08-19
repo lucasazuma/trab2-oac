@@ -1,0 +1,3 @@
+/home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug/CMakeFiles/OAC.dir
