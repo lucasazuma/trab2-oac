@@ -103,6 +103,15 @@
 		<Unit filename="/home/lucas/unb/2020-02/oac/trab2-oac/memory/validations.h">
 			<Option target="OAC"/>
 		</Unit>
+		<Unit filename="/home/lucas/unb/2020-02/oac/trab2-oac/simulador/instruction.h">
+			<Option target="OAC"/>
+		</Unit>
+		<Unit filename="/home/lucas/unb/2020-02/oac/trab2-oac/simulador/instructions.c">
+			<Option target="OAC"/>
+		</Unit>
+		<Unit filename="/home/lucas/unb/2020-02/oac/trab2-oac/simulador/utils.h">
+			<Option target="OAC"/>
+		</Unit>
 		<Unit filename="/home/lucas/unb/2020-02/oac/trab2-oac/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
