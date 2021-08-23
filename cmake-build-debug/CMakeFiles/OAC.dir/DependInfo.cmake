@@ -14,6 +14,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/lucas/unb/2020-02/oac/trab2-oac/memory/test.c" "/home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug/CMakeFiles/OAC.dir/memory/test.c.o"
   "/home/lucas/unb/2020-02/oac/trab2-oac/memory/validations.c" "/home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug/CMakeFiles/OAC.dir/memory/validations.c.o"
   "/home/lucas/unb/2020-02/oac/trab2-oac/simulador/instructions.c" "/home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug/CMakeFiles/OAC.dir/simulador/instructions.c.o"
+  "/home/lucas/unb/2020-02/oac/trab2-oac/simulador/utils.c" "/home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug/CMakeFiles/OAC.dir/simulador/utils.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

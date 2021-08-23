@@ -273,6 +273,30 @@ simulador/instructions.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/simulador/instructions.c.s
 .PHONY : simulador/instructions.c.s
 
+simulador/utils.o: simulador/utils.c.o
+.PHONY : simulador/utils.o
+
+# target to build an object file
+simulador/utils.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/simulador/utils.c.o
+.PHONY : simulador/utils.c.o
+
+simulador/utils.i: simulador/utils.c.i
+.PHONY : simulador/utils.i
+
+# target to preprocess a source file
+simulador/utils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/simulador/utils.c.i
+.PHONY : simulador/utils.c.i
+
+simulador/utils.s: simulador/utils.c.s
+.PHONY : simulador/utils.s
+
+# target to generate assembly for a file
+simulador/utils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/OAC.dir/build.make CMakeFiles/OAC.dir/simulador/utils.c.s
+.PHONY : simulador/utils.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -300,6 +324,9 @@ help:
 	@echo "... simulador/instructions.o"
 	@echo "... simulador/instructions.i"
 	@echo "... simulador/instructions.s"
+	@echo "... simulador/utils.o"
+	@echo "... simulador/utils.i"
+	@echo "... simulador/utils.s"
 .PHONY : help
 
 

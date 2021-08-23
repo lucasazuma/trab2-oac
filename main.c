@@ -19,20 +19,13 @@
 
 
 int main() {
-//    reset_memory();
-//    printf("======================\n");
-//    printf("|| testes principais||\n");
-//    printf("======================\n\n");
-//    run_required_tests();
-//
-//    printf("======================\n");
-//    printf("|| testes extras||\n");
-//    printf("======================\n\n");
-//    extra_tests();
+
     printf("type I\n");
     decode(0x00500893);
+    execute();
 
     printf("type R\n");
     decode(0x00e00533);
+    execute();
     return 0;
 }

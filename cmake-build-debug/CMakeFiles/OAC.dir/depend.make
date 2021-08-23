@@ -5,7 +5,8 @@ CMakeFiles/OAC.dir/main.c.o: \
  ../main.c \
  ../memory/memory.h \
  ../memory/test.h \
- ../simulador/instruction.h
+ ../simulador/instruction.h \
+ ../simulador/utils.h
 CMakeFiles/OAC.dir/memory/binary.c.o: \
  ../memory/binary.c \
  ../memory/binary.h \
@@ -25,7 +26,8 @@ CMakeFiles/OAC.dir/memory/validations.c.o: \
  ../memory/validations.c \
  ../memory/validations.h
 CMakeFiles/OAC.dir/simulador/instructions.c.o: \
- ../memory/memory.h \
  ../simulador/instruction.h \
  ../simulador/instructions.c \
  ../simulador/utils.h
+CMakeFiles/OAC.dir/simulador/utils.c.o: \
+ ../simulador/utils.c
