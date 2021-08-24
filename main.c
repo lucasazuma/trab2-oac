@@ -19,13 +19,20 @@
 
 
 int main() {
-
     printf("type I\n");
     decode(0x00500893);
     execute();
 
     printf("type R\n");
-    decode(0x00e00533);
+    decode(0x000004b3);
+    execute();
+
+    printf("type J\n");
+    decode(0xfedff06f);
+    execute();
+
+    printf("type B\n");
+    decode(0x00d5dc63 );
     execute();
     return 0;
 }

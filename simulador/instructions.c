@@ -145,30 +145,39 @@ int32_t get_imm() {
 
 void execute_R() {
     switch (funct7_types) {
-        case ADD7:
-            switch (funct3_types) {
-                case ADDSUB3:
-                    printf("add\n\n");
-                    break;
-            }
-            break;
         case SUB7:
             switch (funct3_types) {
                 case ADDSUB3:
+                    printf("sub\n\n");
+                    breg[rd] = breg[rs1] - breg[rs2];
+                    break;
+            }
+            break;
+        case ADD7:
+            switch (funct3_types) {
+                case ADDSUB3:
+                    breg[rd] = breg[rs1] - breg[rs2];
                     printf("add\n\n");
                     break;
                 case SLT3:
                     printf("slt\n\n");
                     break;
                 case OR3:
+                    breg[rd] = breg[rs1] | breg[rs2];
                     printf("or\n\n");
                     break;
                 case AND3:
+                    breg[rd] = breg[rs1] & breg[rs2];
                     printf("and");
                     break;
+                case XOR3:
+                    breg[rd] = breg[rs1] ^ breg[rs2];
+                    printf("xor");
+                    break;
+                case SLTU3:
+                    printf("sltu\n\n");
             }
             break;
-
     }
 }
 

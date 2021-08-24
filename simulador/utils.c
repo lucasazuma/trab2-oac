@@ -20,6 +20,7 @@
 #define IMM_12_ELEVENTH_BIT_MASK 0x00100000
 #define IMM_12_J_LOW_REST_MASK 0x7FE00000
 #define IMM_12_U_MASK 0xFFFFF000
+#define SHAMT_MASK 0x01F00000;
 
 int32_t get_opcode(int32_t instruction) {
     return instruction & OPCODE_MASK;
@@ -83,5 +84,9 @@ int32_t get_imm21_j(int32_t instruction) {
 
 int32_t get_imm21_u(int32_t instruction) {
     return instruction & IMM_12_U_MASK;
+}
+
+int32_t get_shamt(int32_t instruction){
+    return instruction & SHAMT_MASK
 }
 
