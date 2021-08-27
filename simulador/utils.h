@@ -32,7 +32,7 @@ int32_t get_imm21_j(int32_t instruction);
 
 int32_t get_imm21_u(int32_t instruction);
 
-int32_t  get_shamt(int32_t instruction);
+int32_t get_shamt(int32_t instruction);
 
 
 #endif //OAC_UTILS_H

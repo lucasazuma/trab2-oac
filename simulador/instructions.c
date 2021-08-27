@@ -3,6 +3,7 @@
 //
 #include <stdio.h>
 #include "instruction.h"
+#include "../memory/memory.h"
 #include "utils.h"
 
 #define I_OPCODE1 0x3  //0000011
@@ -15,12 +16,14 @@
 #define J_OPCODE 0x6F  //1101111
 #define U_OPCODE1 0x37 //0110111
 #define U_OPCODE2 0x17 //0010111
+#define DATA_SEGMENT_START 0x2000
 
 uint32_t pc;                        // contador de programa
 uint32_t ri;                            // registrador de intrucao
 uint32_t sp;                            // stack pointer
 uint32_t gp;                            // global pointer
-int32_t breg[32];
+int32_t breg[32] = {};
+int stop = 0;
 
 enum REGISTERS {
     ZERO = 0, RA = 1, SP = 2, GP = 3,
@@ -41,11 +44,11 @@ enum FUNCT3 {
     XOR3 = 04, SR3 = 05, OR3 = 06, AND3 = 07,
     ADDI3 = 0, ORI3 = 06, SLTI3 = 02, XORI3 = 04, ANDI3 = 07,
     SLTIU3 = 03, SLLI3 = 01, SRI3 = 05
-} funct3_types;
+};
 
 enum FUNCT7 {
     ADD7 = 0, SUB7 = 0x20, SRA7 = 0x20, SRL7 = 0, SRLI7 = 0x00, SRAI7 = 0x20
-} funct7_types;
+};
 
 
 uint32_t opcode; //código da operação
@@ -55,25 +58,50 @@ uint32_t rd; //índice do registrador destino, que recebe o resultado da operaç
 uint32_t shamt; //quantidade de deslocamento em instruções shift e rotate
 uint32_t funct3; //código auxiliar de 3 bits para determinar a instrução a ser executada
 uint32_t funct7; //código auxiliar de 7 bits para determinar a instrução a ser executada
-int32_t imm12_i; //constante de 12 bits, valor imediato em instruções tipo I
-int32_t imm12_s; //constante de 12 bits, valor imediato em instruções tipo S
-int32_t imm13; //constante de 13 bits, valor imediato em instruções tipo SB, bit 0 é sempre 0
-int32_t imm20_u; //constante de 20 bits mais significativos, 31 a 12
-int32_t imm21; //constante de 21 bits para saltos relativos, bit 0 é sempre 0
+int32_t imm12_i = 0x0; //constante de 12 bits, valor imediato em instruções tipo I
+int32_t imm12_s = 0x0; //constante de 12 bits, valor imediato em instruções tipo S
+int32_t imm13 = 0x0; //constante de 13 bits, valor imediato em instruções tipo SB, bit 0 é sempre 0
+int32_t imm20_u = 0x0; //constante de 20 bits mais significativos, 31 a 12
+int32_t imm21 = 0x0; //constante de 21 bits para saltos relativos, bit 0 é sempre 0
 
 
+void fetch() {
+    ri = lw(pc, 0);
+    pc = pc + 4;
+}
 
-void decode(uint32_t instruction){
-    opcode = get_opcode(instruction);
-    rs1 = get_rs1(instruction);
-    rs2 = get_rs2(instruction);
-    funct3 = get_funct3(instruction);
-    funct7 = get_funct7(instruction);
-    rd = get_rd(instruction);
+void step() {
+    fetch();
+    decode();
+    execute();
+}
+
+void decode() {
+    opcode = get_opcode(ri);
+    rs1 = get_rs1(ri);
+    rs2 = get_rs2(ri);
+    funct3 = get_funct3(ri);
+    funct7 = get_funct7(ri);
+    rd = get_rd(ri);
+    imm12_i = get_imm12_i(ri);
+    imm12_s = get_imm12_s(ri);
+    imm20_u = get_imm21_u(ri);
+    imm13 = get_imm12_b(ri);
+    shamt = get_shamt(ri);
+    printf("ri -  %x", ri);
+}
+
+void run() {
+    pc = 0; ri = 0;
+    stop = 0;
+    sp = 0x3ffc;
+    gp = 0x1800;
+    while (pc < DATA_SEGMENT_START && !stop) {
+        step();
+    }
 }
 
 void execute() {
-    printf("OPCODE MOTHERFUCKER => %x\n\n", opcode);
     switch (opcode) {
         case R_OPCODE:
             execute_R();
@@ -106,7 +134,6 @@ void execute() {
             execute_J();
             break;
         default:
-            printf("WHAT THE FUCK IS THIS INSTRUCTION :(\n");
             break;
     }
 }
@@ -144,78 +171,73 @@ int32_t get_imm() {
 }
 
 void execute_R() {
-    switch (funct7_types) {
+    switch (funct7) {
         case SUB7:
-            switch (funct3_types) {
+            switch (funct3) {
                 case ADDSUB3:
-                    printf("sub\n\n");
                     breg[rd] = breg[rs1] - breg[rs2];
                     break;
             }
             break;
         case ADD7:
-            switch (funct3_types) {
+            switch (funct3) {
                 case ADDSUB3:
                     breg[rd] = breg[rs1] - breg[rs2];
-                    printf("add\n\n");
                     break;
                 case SLT3:
-                    printf("slt\n\n");
+                    breg[rd] = breg[rs1] << breg[rs2];
                     break;
                 case OR3:
                     breg[rd] = breg[rs1] | breg[rs2];
-                    printf("or\n\n");
                     break;
                 case AND3:
                     breg[rd] = breg[rs1] & breg[rs2];
-                    printf("and");
                     break;
                 case XOR3:
                     breg[rd] = breg[rs1] ^ breg[rs2];
-                    printf("xor");
                     break;
                 case SLTU3:
-                    printf("sltu\n\n");
+                    breg[rd] = ((uint32_t)breg[rs1] < (uint32_t)breg[rs2]);break;
+                    break;
             }
             break;
     }
 }
 
 void execute_I_1() {
-    switch (funct3_types) {
+    switch (funct3) {
         case LB3:
-            printf("lb\n\n");
+            breg[rd] = lb(breg[rs1], imm12_i);
             break;
         case LBU3:
-            printf("lbu\n\n");
+            breg[rd] = lbu(breg[rs1], imm12_i);
             break;
         case LW3:
-            printf("lw\n\n");
+            breg[rd] = lw(breg[rs1], imm12_i);
             break;
     }
 }
 
 void execute_I_2() {
-    switch (funct3_types) {
+    switch (funct3) {
         case ADDI3:
-            printf("ADDI\n\n");
+            breg[rd] = breg[rs1] + imm12_i;
             break;
         case ANDI3:
-            printf("ADDI\n\n");
+            breg[rd] = breg[rs1] & imm12_i;
             break;
         case SLLI3:
-            printf("slli\n\n");
             break;
         case ORI3:
-            printf("ori\n\n");
+            breg[rd] = breg[rs1] | imm12_i;
             break;
         case 3:
             switch (funct7) {
                 case SRAI7:
-                    printf("srai\n\n");
+                    breg[rd] = breg[rs1] >> shamt;
                     break;
                 case SRLI7:
-                    printf("srli\n\n");
+                    breg[rd] = (uint32_t) breg[rs1] >> shamt;
                     break;
             }
             break;
@@ -225,67 +247,82 @@ void execute_I_2() {
 void execute_I_3() {
     switch (breg[A7]) {
         case 1:
-            printf("a7,1\n\n");
+            printf("%d", get_memory()[breg[A0]]);
             break;
         case 4:
-            printf("a7,4");
+            printf("%s", get_memory()[breg[A0]]);
             break;
         case 10:
-            return;
+            stop = 1;
+            break;
 
     }
 }
 
 void execute_I_4() {
-//    breg[rd] = pc+ 4;
-//    pc = (rs1 + imm12_i) & ~ 1;
-    printf("jalr\n\n");
+    breg[rd] = pc;
+    pc = breg[rs1] + imm12_i;
+    breg[ZERO] = 0;
 }
 
 void execute_B() {
-    switch (funct3_types) {
+    switch (funct3) {
         case BEQ3:
-            printf("beq\n\n");
+            if (breg[rs1] == breg[rs2]) {
+                pc += imm13 - 4;
+            }
             break;
         case BNE3:
-            printf("bne\n\n");
+            if (breg[rs1] != breg[rs2]) {
+                pc += imm13 - 4;
+            }
             break;
         case BGE3:
-            printf("bge\n\n");
+            if (breg[rs1] >= breg[rs2]) {
+                pc += imm13 - 4;
+            }
             break;
         case BGEU3:
-            printf("bgeu\n\n");
+            if ((uint32_t) breg[rs1] >= (uint32_t) breg[rs2]) {
+                pc += imm13 - 4;
+            }
             break;
         case BLT3:
-            printf("blt\n\n");
+            if (breg[rs1] < breg[rs2]) {
+                pc += imm13 - 4;
+            }
             break;
         case BLTU3:
-            printf("bltu\n\n");
+            if ((uint32_t) breg[rs1] < (uint32_t) breg[rs2]) {
+                pc += imm13 - 4;
+            }
             break;
     }
 }
 
-void execute_U_1(){
-    printf("lui\n\n");
+void execute_U_1() {
+    breg[rd] = imm20_u;
 }
 
-void execute_U_2(){
-    printf("auipc\n\n");
+void execute_U_2() {
+    breg[rd] = pc + imm20_u;
 }
 
-void execute_S(){
-    switch(funct3_types){
+void execute_S() {
+    switch (funct3) {
         case SB3:
-            printf("sb\n\n");
+            sb(breg[rs1], imm12_s, (int8_t)breg[rs2]);
             break;
         case SW3:
-            printf("sw\n\n");
+            sw(breg[rs1], imm12_s, breg[rs2]);
             break;
     }
 }
 
-void execute_J(){
-    printf("jal\n\n");
+void execute_J() {
+    breg[rd] = pc;
+    pc += imm21 - 4;
+    breg[ZERO] = 0;
 }
 
 

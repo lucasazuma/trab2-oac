@@ -10,6 +10,7 @@
 #define FUNCT3_MASK 0x7000
 #define RD_MASK 0xF80
 #define FUNCT7_MASK 0xFE000000
+#define IMM_12_I_MASK 0xFFF00000
 #define IMM_12_S_LOW 0xFE000000
 #define IMM_12_S_TOP 0x00000F80
 #define IMM_12_B_TOP_SIG_MASK 0x80000000
@@ -19,8 +20,15 @@
 #define IMM_12_J_TOP_REST_MASK 0x000FF000
 #define IMM_12_ELEVENTH_BIT_MASK 0x00100000
 #define IMM_12_J_LOW_REST_MASK 0x7FE00000
-#define IMM_12_U_MASK 0xFFFFF000
+#define IMM_20_U_MASK 0xFFFFF000
 #define SHAMT_MASK 0x01F00000;
+
+#define OPCODE_SIZE 7
+#define RD_SIZE 5
+#define FUNCT3_SIZE 3
+#define RS1_SIZE 5
+#define RS2_SIZE 5
+
 
 int32_t get_opcode(int32_t instruction) {
     return instruction & OPCODE_MASK;
@@ -51,21 +59,21 @@ int32_t get_rd(int32_t instruction) {
     return extracted >> 7;
 }
 
-int32_t get_imm12_i(int32_t instruction) {
-    return instruction >> 20;
+int32_t get_imm12_i(int32_t instruction) { //ok
+    return (int32_t)(instruction & IMM_12_I_MASK) >> 20;
 }
 
-int32_t get_imm12_s(int32_t instruction) {
-    int32_t extracted_top = instruction & IMM_12_S_TOP;
+int32_t get_imm12_s(int32_t instruction) { //ok
+    int32_t extracted_top = (int32_t)(instruction & IMM_12_S_TOP);
     int32_t extracted_low = instruction & IMM_12_S_LOW;
-    int32_t top = extracted_top >> 25;
+    int32_t top = extracted_top >> 20;
     int32_t low = extracted_low >> 7;
     int32_t imm = top | low;
     return imm;
 }
 
-int32_t get_imm12_b(int32_t instruction) {
-    int32_t top_sig = (instruction & IMM_12_B_TOP_SIG_MASK) >> 19;
+int32_t get_imm12_b(int32_t instruction) {//ok
+    int32_t top_sig = (int32_t)(instruction & IMM_12_B_TOP_SIG_MASK) >> 19;
     int32_t low_sig = (instruction & IMM_12_B_LOW_SIG_MASK) << 4;
     int32_t top_rest = (instruction & IMM_12_B_TOP_REST_MASK) >> 20;
     int32_t low_rest = (instruction & IMM_12_B_LOW_REST_MASK) >> 7;
@@ -73,8 +81,8 @@ int32_t get_imm12_b(int32_t instruction) {
     return imm;
 }
 
-int32_t get_imm21_j(int32_t instruction) {
-    int32_t top_sig = (instruction & IMM_12_B_TOP_SIG_MASK) >> 19;
+int32_t get_imm21_j(int32_t instruction) {//ok
+    int32_t top_sig = (int32_t)(instruction & IMM_12_B_TOP_SIG_MASK) >> 11;
     int32_t top_rest = (instruction & IMM_12_J_TOP_REST_MASK);
     int32_t low_sig = (instruction & IMM_12_ELEVENTH_BIT_MASK) >> 9;
     int32_t low_rest = (instruction & IMM_12_J_LOW_REST_MASK) >> 20;
@@ -82,11 +90,11 @@ int32_t get_imm21_j(int32_t instruction) {
     return imm;
 }
 
-int32_t get_imm21_u(int32_t instruction) {
-    return instruction & IMM_12_U_MASK;
+int32_t get_imm21_u(int32_t instruction) {//ok
+    return instruction & IMM_20_U_MASK;
 }
 
-int32_t get_shamt(int32_t instruction){
+int32_t get_shamt(int32_t instruction){//ok
     return instruction & SHAMT_MASK
 }
 

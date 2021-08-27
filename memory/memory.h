@@ -10,6 +10,8 @@
 int32_t* get_memory();
 
 void reset_memory();
+void load_mem(const char *fileName, int start);
+void print_memory();
 
 int32_t lw(uint32_t address, int32_t kte);
 

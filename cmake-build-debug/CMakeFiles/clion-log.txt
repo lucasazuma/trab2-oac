@@ -1,4 +1,0 @@
-/var/lib/snapd/snap/clion/162/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /home/lucas/unb/2020-02/oac/trab2-oac
--- Configuring done
--- Generating done
--- Build files have been written to: /home/lucas/unb/2020-02/oac/trab2-oac/cmake-build-debug

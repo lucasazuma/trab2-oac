@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "memory/test.h"
 #include "simulador/instruction.h"
 
@@ -18,21 +19,11 @@
  */
 
 
-int main() {
-    printf("type I\n");
-    decode(0x00500893);
-    execute();
-
-    printf("type R\n");
-    decode(0x000004b3);
-    execute();
-
-    printf("type J\n");
-    decode(0xfedff06f);
-    execute();
-
-    printf("type B\n");
-    decode(0x00d5dc63 );
-    execute();
+int main(){
+    reset_memory();
+    load_mem("bin_text.bin", 0);
+    load_mem("bin_data.bin", 0x2000);
+    run();
+//    print_memory();
     return 0;
 }

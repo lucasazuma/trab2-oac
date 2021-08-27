@@ -6,7 +6,7 @@
 #include <stdint.h>
 #include "utils.h"
 
-void decode(uint32_t instruction);
+void decode();
 
 void execute();
 
@@ -31,6 +31,10 @@ void execute_U_2();
 void execute_S();
 
 void execute_J();
+
+void fetch ();
+
+void run();
 
 
 
