@@ -24,6 +24,6 @@ int main(){
     load_mem("bin_text.bin", 0);
     load_mem("bin_data.bin", 0x2000);
     run();
-//    print_memory();
+
     return 0;
 }

@@ -87,8 +87,11 @@ void decode() {
     imm12_s = get_imm12_s(ri);
     imm20_u = get_imm21_u(ri);
     imm13 = get_imm12_b(ri);
+    imm21 = get_imm21_j(ri);
+    imm13 = get_imm12_b(ri);
     shamt = get_shamt(ri);
-    printf("ri -  %x", ri);
+    printf("ri - %x\n", ri);
+//    printf("pc - %x\n", pc);
 }
 
 void run() {
@@ -227,6 +230,7 @@ void execute_I_2() {
             breg[rd] = breg[rs1] & imm12_i;
             break;
         case SLLI3:
+            breg[rd] = breg[rs1] << imm12_i;
             break;
         case ORI3:
             breg[rd] = breg[rs1] | imm12_i;
@@ -247,10 +251,14 @@ void execute_I_2() {
 void execute_I_3() {
     switch (breg[A7]) {
         case 1:
-            printf("%d", get_memory()[breg[A0]]);
+            printf("%d", breg[A0]);
             break;
         case 4:
-            printf("%s", get_memory()[breg[A0]]);
+            uint32_t character = (uint32_t)breg[A0];
+            while(lb(character,0)) {
+                printf("%c", (char)lb(character,0));
+                character++;
+            }
             break;
         case 10:
             stop = 1;
