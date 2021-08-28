@@ -16,7 +16,6 @@
 #define J_OPCODE 0x6F  //1101111
 #define U_OPCODE1 0x37 //0110111
 #define U_OPCODE2 0x17 //0010111
-#define DATA_SEGMENT_START 0x2000
 
 uint32_t pc;                        // contador de programa
 uint32_t ri;                            // registrador de intrucao
@@ -51,13 +50,13 @@ enum FUNCT7 {
 };
 
 
-uint32_t opcode; //código da operação
-uint32_t rs1; //índice do primeiro registrador fonte
-uint32_t rs2; //índice do segundo registrador fonte
-uint32_t rd; //índice do registrador destino, que recebe o resultado da operação
-uint32_t shamt; //quantidade de deslocamento em instruções shift e rotate
-uint32_t funct3; //código auxiliar de 3 bits para determinar a instrução a ser executada
-uint32_t funct7; //código auxiliar de 7 bits para determinar a instrução a ser executada
+int32_t opcode; //código da operação
+int32_t rs1; //índice do primeiro registrador fonte
+int32_t rs2; //índice do segundo registrador fonte
+int32_t rd; //índice do registrador destino, que recebe o resultado da operação
+int32_t shamt; //quantidade de deslocamento em instruções shift e rotate
+int32_t funct3; //código auxiliar de 3 bits para determinar a instrução a ser executada
+int32_t funct7; //código auxiliar de 7 bits para determinar a instrução a ser executada
 int32_t imm12_i = 0x0; //constante de 12 bits, valor imediato em instruções tipo I
 int32_t imm12_s = 0x0; //constante de 12 bits, valor imediato em instruções tipo S
 int32_t imm13 = 0x0; //constante de 13 bits, valor imediato em instruções tipo SB, bit 0 é sempre 0
@@ -88,18 +87,16 @@ void decode() {
     imm20_u = get_imm21_u(ri);
     imm13 = get_imm12_b(ri);
     imm21 = get_imm21_j(ri);
-    imm13 = get_imm12_b(ri);
     shamt = get_shamt(ri);
-    printf("ri - %x\n", ri);
-//    printf("pc - %x\n", pc);
 }
 
 void run() {
-    pc = 0; ri = 0;
+    pc = 0;
+    ri = 0;
     stop = 0;
     sp = 0x3ffc;
     gp = 0x1800;
-    while (pc < DATA_SEGMENT_START && !stop) {
+    while (pc < 0x2000 && !stop) {
         step();
     }
 }
@@ -107,73 +104,42 @@ void run() {
 void execute() {
     switch (opcode) {
         case R_OPCODE:
-            execute_R();
+            execute_R_type();
             break;
         case I_OPCODE1:
-            execute_I_1();
+            execute_I1_type();
             break;
         case I_OPCODE2:
-            execute_I_2();
+            execute_I2_type();
             break;
         case I_OPCODE3:
-            execute_I_3();
+            execute_I3_type();
             break;
         case I_OPCODE4:
-            execute_I_4();
+            execute_I4_type();
             break;
         case U_OPCODE1:
-            execute_U_1();
+            execute_U1_type();
             break;
         case U_OPCODE2:
-            execute_U_2();
+            execute_U2_type();
             break;
         case S_OPCODE:
-            execute_S();
+            execute_S_type();
             break;
         case B_OPCODE:
-            execute_B();
+            execute_B_type();
             break;
         case J_OPCODE:
-            execute_J();
+            execute_J_type();
             break;
         default:
+            printf("invalid instruction\n");
             break;
     }
 }
 
-int32_t get_imm() {
-    switch (opcode) {
-        case I_OPCODE1:
-            return get_imm12_i(ri);
-            break;
-        case I_OPCODE2:
-            return get_imm12_i(ri);
-            break;
-        case I_OPCODE3:
-            return get_imm12_i(ri);
-            break;
-        case I_OPCODE4:
-            return get_imm12_i(ri);
-            break;
-        case S_OPCODE:
-            return get_imm12_s(ri);
-            break;
-        case B_OPCODE:
-            return get_imm12_b(ri);
-            break;
-        case J_OPCODE:
-            return get_imm21_j(ri);
-            break;
-        case U_OPCODE1:
-            return get_imm21_u(ri);
-            break;
-        case U_OPCODE2:
-            return get_imm21_u(ri);
-            break;
-    }
-}
-
-void execute_R() {
+void execute_R_type() {
     switch (funct7) {
         case SUB7:
             switch (funct3) {
@@ -185,10 +151,10 @@ void execute_R() {
         case ADD7:
             switch (funct3) {
                 case ADDSUB3:
-                    breg[rd] = breg[rs1] - breg[rs2];
+                    breg[rd] = breg[rs1] + breg[rs2];
                     break;
                 case SLT3:
-                    breg[rd] = breg[rs1] << breg[rs2];
+                    breg[rd] = breg[rs1] < breg[rs2];
                     break;
                 case OR3:
                     breg[rd] = breg[rs1] | breg[rs2];
@@ -200,14 +166,14 @@ void execute_R() {
                     breg[rd] = breg[rs1] ^ breg[rs2];
                     break;
                 case SLTU3:
-                    breg[rd] = ((uint32_t)breg[rs1] < (uint32_t)breg[rs2]);break;
+                    breg[rd] = ((uint32_t) breg[rs1] < (uint32_t) breg[rs2]);
                     break;
             }
             break;
     }
 }
 
-void execute_I_1() {
+void execute_I1_type() {
     switch (funct3) {
         case LB3:
             breg[rd] = lb(breg[rs1], imm12_i);
@@ -221,7 +187,7 @@ void execute_I_1() {
     }
 }
 
-void execute_I_2() {
+void execute_I2_type() {
     switch (funct3) {
         case ADDI3:
             breg[rd] = breg[rs1] + imm12_i;
@@ -235,28 +201,28 @@ void execute_I_2() {
         case ORI3:
             breg[rd] = breg[rs1] | imm12_i;
             break;
-        case 3:
+        case 0b101:
             switch (funct7) {
-                case SRAI7:
-                    breg[rd] = breg[rs1] >> shamt;
+                case SRA7:
+                    breg[rd] = breg[rs1] >> imm12_i;
                     break;
-                case SRLI7:
-                    breg[rd] = (uint32_t) breg[rs1] >> shamt;
+                case SRL7:
+                    breg[rd] = (uint32_t) breg[rs1] >> imm12_i;
                     break;
             }
             break;
     }
 }
 
-void execute_I_3() {
+void execute_I3_type() {
     switch (breg[A7]) {
         case 1:
             printf("%d", breg[A0]);
             break;
         case 4:
-            uint32_t character = (uint32_t)breg[A0];
-            while(lb(character,0)) {
-                printf("%c", (char)lb(character,0));
+            uint32_t character = (uint32_t) breg[A0];
+            while (lb(character, 0)) {
+                printf("%c", (char) lb(character, 0));
                 character++;
             }
             break;
@@ -267,13 +233,13 @@ void execute_I_3() {
     }
 }
 
-void execute_I_4() {
+void execute_I4_type() {
     breg[rd] = pc;
     pc = breg[rs1] + imm12_i;
     breg[ZERO] = 0;
 }
 
-void execute_B() {
+void execute_B_type() {
     switch (funct3) {
         case BEQ3:
             if (breg[rs1] == breg[rs2]) {
@@ -308,18 +274,18 @@ void execute_B() {
     }
 }
 
-void execute_U_1() {
+void execute_U1_type() {
     breg[rd] = imm20_u;
 }
 
-void execute_U_2() {
-    breg[rd] = pc + imm20_u;
+void execute_U2_type() {
+    breg[rd] = pc + imm20_u - 4;
 }
 
-void execute_S() {
+void execute_S_type() {
     switch (funct3) {
         case SB3:
-            sb(breg[rs1], imm12_s, (int8_t)breg[rs2]);
+            sb(breg[rs1], imm12_s, (int8_t) breg[rs2]);
             break;
         case SW3:
             sw(breg[rs1], imm12_s, breg[rs2]);
@@ -327,10 +293,24 @@ void execute_S() {
     }
 }
 
-void execute_J() {
+void execute_J_type() {
+    breg[ZERO] = 0;
     breg[rd] = pc;
     pc += imm21 - 4;
-    breg[ZERO] = 0;
+}
+
+void dump_reg(char type) {
+    int i = 0;
+    if (type == 'd') {
+        for (i = 0; i < 32; i++) {
+            printf("%d:\t%8d\n", i, breg[i]);
+        }
+    }
+    if (type == 'h') {
+        for (i = 0; i < 32; i++) {
+            printf("%x\n", breg[i]);
+        }
+    }
 }
 
 

@@ -20,9 +20,8 @@
 
 
 int main(){
-    reset_memory();
-    load_mem("bin_text.bin", 0);
-    load_mem("bin_data.bin", 0x2000);
+    load_mem("text.bin", 0);
+    load_mem("data.bin", 0x2000);
     run();
 
     return 0;
